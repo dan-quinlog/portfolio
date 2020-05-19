@@ -1,11 +1,19 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+import "./styles/main.scss";
+
+import Navbar from "./layout/Navbar";
+import Dashboard from "./dashboard/Dashboard";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <h1>hi there</h1>
+        <Navbar />
+        <Switch>
+          <Route path="/" exact component={Dashboard} />
+        </Switch>
       </div>
     </BrowserRouter>
   );
