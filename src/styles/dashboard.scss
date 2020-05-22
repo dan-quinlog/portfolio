@@ -1,0 +1,19 @@
+.dashboard {
+  display: grid;
+  grid-template-rows: 30px [top-s] auto [top-e] 50px [bottom-s] auto [bottom-e];
+  &__top {
+    grid-row: top-s/top-e;
+    display: grid;
+    grid-template-columns: 40px [left-s] 3fr [left-e] 50px [right-s] 2fr [right-e] 40px;
+    &__left {
+      grid-column: left-s/left-e;
+    }
+    &__right {
+      grid-column: right-s/right-e;
+    }
+  }
+
+  &__bottom {
+    grid-row: bottom-s/bottom-e;
+  }
+}
