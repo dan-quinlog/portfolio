@@ -1,16 +1,15 @@
 import React from "react";
 
-import ProjectSummary from './ProjectSummary';
+import ProjectSummary from "./ProjectSummary";
 
-const ProjectList = () => {
+const ProjectList = ({ projects }) => {
   return (
     <div className="project-list">
       <div className="card project-summary">
-        <ProjectSummary />
-        <ProjectSummary />
-        <ProjectSummary />
-        <ProjectSummary />
-        <ProjectSummary />
+        {projects &&
+          projects.map((project) => {
+            return <ProjectSummary project={project} key={project.id} />;
+          })}
       </div>
     </div>
   );
