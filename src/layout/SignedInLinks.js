@@ -5,13 +5,13 @@ const SignedInLinks = () => {
   return (
     <ul className="navbar__links signed_in_links">
       <NavLink to="/" className="navbar__link">
-        <li>Projects</li>
+        <li>Create</li>
       </NavLink>
       <NavLink to="/" className="navbar__link">
-        <li>Blog</li>
+        <li>Post</li>
       </NavLink>
       <NavLink to="/" className="navbar__link">
-        <li>Profile</li>
+        <li>Logout</li>
       </NavLink>
     </ul>
   );
