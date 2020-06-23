@@ -1,29 +1,43 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 
 import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const { auth } = props;
+  const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
+  const history = useHistory();
+  const signInHandler = (e) => {
+    e.persist();
+    e.preventDefault();
+    if(e.ctrlKey) {
+      history.push('/signin/')
+    } else {
+      history.push('/');
+    }
+  };
   return (
     <nav className="nav-wrapper">
       <div className="navbar">
-        <Link to="/" className="navbar__logo navbar__link">
+        <Link
+          to="/"
+          onClick={signInHandler}
+          className="navbar__logo navbar__link"
+        >
           Daniel Quinlog
         </Link>
-        <SignedInLinks />
-        <SignedOutLinks />
+        {links}
       </div>
     </nav>
   );
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
-    
-  }
-}
+    auth: state.firebase.auth,
+  };
+};
 
 export default connect(mapStateToProps)(Navbar);

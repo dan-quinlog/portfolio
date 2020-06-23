@@ -10,7 +10,7 @@ import ProfileSS from "../profile/ProfileSS";
 
 class Dashboard extends Component {
   render() {
-    const { projects } = this.props;
+    const { projects, notifications } = this.props;
     return (
       <div className="dashboard">
         <div className="dashboard__top">
@@ -18,7 +18,7 @@ class Dashboard extends Component {
             <ProfileSS />
           </div>
           <div className="dashboard__top__right">
-            <Notifications />
+            <Notifications notifications={notifications} />
           </div>
         </div>
         <div className="dashboard__bottom">
@@ -31,15 +31,15 @@ class Dashboard extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    projects: state.firestore.ordered.projects
+    projects: state.firestore.ordered.projects,
+    notifications: state.firestore.ordered.notifications,
   };
 };
 
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    {
-      collection: "projects",
-    },
+    { collection: "projects", orderBy: ["createdAt", "desc"] },
+    { collection: "notifications", limit: 3, orderBy: ["time", "desc"] },
   ])
 )(Dashboard);

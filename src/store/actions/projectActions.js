@@ -6,7 +6,6 @@ export const createProject = (project) => {
       .collection("projects")
       .add({
         ...project,
-        AuthorId: 12345,
         createdAt: new Date(),
       })
       .then(() => {
