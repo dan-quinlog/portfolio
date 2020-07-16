@@ -3,13 +3,35 @@ import { connect } from "react-redux";
 import { createProject } from "../store/actions/projectActions";
 import { Redirect } from "react-router-dom";
 
+import DropzoneComponent from "react-dropzone-component";
+import "../../node_modules/react-dropzone-component/styles/filepicker.css";
+import "../../node_modules/dropzone/dist/min/dropzone.min.css";
 
 class CreateProject extends Component {
   state = {
     type: "project",
     title: "",
     content: "",
+    image: "",
   };
+  componentConfig() {
+    return {
+      iconFileTypes: [".jpg", ".png"],
+      showFileTypeIcon: true,
+      postUrl: "https://httpbin.org/post",
+    };
+  }
+  djsConfig() {
+    return {
+      addRemoveLinks: true,
+      maxFiles: 1,
+    };
+  }
+  handleThumbDrop() {
+    return {
+      addedfile: (file) => this.setState({ image: file }),
+    };
+  }
   handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value,
@@ -44,6 +66,13 @@ class CreateProject extends Component {
               id="content"
               onChange={this.handleChange}
             ></textarea>
+            <div className="image-uploader">
+              <DropzoneComponent
+                config={this.componentConfig()}
+                djsConfig={this.djsConfig()}
+                eventHandlers={this.handleThumbDrop()}
+              />
+            </div>
           </div>
           <div className="input-field">
             <button className="btn">submit</button>

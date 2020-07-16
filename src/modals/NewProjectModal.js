@@ -1,5 +1,6 @@
 import React from "react";
 import ReactModal from "react-modal";
+import CreateProject from "../projects/CreateProject";
 
 ReactModal.setAppElement("#root");
 
@@ -24,7 +25,7 @@ const NewProjectModal = (props) => {
       isOpen={modalIsOpen}
       onRequestClose={closeNewProjectModal}
     >
-      <h1>hi there, I'm in a modal</h1>
+      <CreateProject />
     </ReactModal>
   );
 };
