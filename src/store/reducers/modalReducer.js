@@ -1,5 +1,6 @@
 const initState = {
-  newProjectModal: false,
+  projectModal: false,
+  project: null,
 };
 
 const modalReducer = (state = initState, action) => {
@@ -7,12 +8,20 @@ const modalReducer = (state = initState, action) => {
     case "OPEN_NEW_PROJECT_MODAL":
       return {
         ...state,
-        newProjectModal: true,
+        projectModal: true,
+        project: null,
       };
-    case "CLOSE_NEW_PROJECT_MODAL":
+    case "OPEN_PROJECT_MODAL":
       return {
         ...state,
-        newProjectModal: false,
+        projectModal: true,
+        project: action.project,
+      };
+    case "CLOSE_PROJECT_MODAL":
+      return {
+        ...state,
+        projectModal: false,
+        project: null,
       };
     default:
       return state;

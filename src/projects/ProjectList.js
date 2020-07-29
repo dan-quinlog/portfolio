@@ -1,21 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { openProjectModal } from "../store/actions/modalActions";
 
 import ProjectSummary from "./ProjectSummary";
 
-const ProjectList = ({ projects } ) => {
+const ProjectList = ({ openProjectModal, projects }) => {
   return (
     <div className="project-list">
       {projects &&
         projects.map((project) => {
           return (
-            <Link to={"/project/" + project.id} key={project.id}>
+            <button onClick={() => openProjectModal(project)} key={project.id}>
               <ProjectSummary project={project} />
-            </Link>
+            </button>
           );
         })}
     </div>
   );
 };
 
-export default ProjectList;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    openProjectModal: (project) => dispatch(openProjectModal(project)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(ProjectList);

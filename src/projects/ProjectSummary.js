@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 
-const ProjectSummary = ({ project }) => {
+const ProjectSummary = ({project}) => {
   return (
     <div className="project-card">
       <div className="project-card__type">{project.type}</div>

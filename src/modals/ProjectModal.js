@@ -1,11 +1,16 @@
 import React from "react";
 import ReactModal from "react-modal";
 import CreateProject from "../projects/CreateProject";
+import ProjectDetails from "../projects/ProjectDetails";
 
 ReactModal.setAppElement("#root");
 
 const NewProjectModal = (props) => {
-  const { modalIsOpen, closeNewProjectModal } = props;
+  const { modalIsOpen, closeProjectModal } = props;
+  const project = props.modalProject ? props.modalProject : null;
+  console.log(project);
+  const modalForm =
+    project === null ? <CreateProject /> : <ProjectDetails project={project} />;
   const modalStyles = {
     content: {
       top: "50%",
@@ -23,9 +28,9 @@ const NewProjectModal = (props) => {
     <ReactModal
       style={modalStyles}
       isOpen={modalIsOpen}
-      onRequestClose={closeNewProjectModal}
+      onRequestClose={closeProjectModal}
     >
-      <CreateProject />
+      {modalForm}
     </ReactModal>
   );
 };
