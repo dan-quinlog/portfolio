@@ -27,15 +27,15 @@ export const createProject = (project) => {
               console.log(error);
             },
             () => {
-              firestore
-                .collection("projects")
-                .doc(res.id)
-                .update({ image: true });
               storage
-                .ref("images")
-                .child(res.id)
-                .getDownloadURL()
-                .then((url) => {
+              .ref("images")
+              .child(res.id)
+              .getDownloadURL()
+              .then((url) => {
+                firestore
+                  .collection("projects")
+                  .doc(res.id)
+                  .update({ image: url });
                   console.log(url);
                 });
             }
