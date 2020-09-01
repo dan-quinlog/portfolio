@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { createProject } from "../store/actions/projectActions";
 import { Redirect } from "react-router-dom";
 
+import RichTextEditor from "../forms/rich-text-editor";
+
 import DropzoneComponent from "react-dropzone-component";
 import "../../node_modules/react-dropzone-component/styles/filepicker.css";
 import "../../node_modules/dropzone/dist/min/dropzone.min.css";
@@ -14,6 +16,9 @@ class CreateProject extends Component {
     content: "",
     image: "",
   };
+  handleRichTextEditorChange = (content) => {
+    this.setState({ content });
+  }
   componentConfig() {
     return {
       iconFileTypes: [".jpg", ".png"],
@@ -60,12 +65,16 @@ class CreateProject extends Component {
             <input type="text" id="title" onChange={this.handleChange} />
           </div>
           <div className="input-field">
-            <label htmlFor="content">content</label>
+            <RichTextEditor
+              handleRichTextEditorChange={this.handleRichTextEditorChange}
+            />
+
+            {/* <label htmlFor="content">content</label>
             <textarea
               className="text-area"
               id="content"
               onChange={this.handleChange}
-            ></textarea>
+            ></textarea> */}
             <div className="image-uploader">
               <DropzoneComponent
                 config={this.componentConfig()}
