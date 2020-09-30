@@ -10,7 +10,7 @@ const ProjectList = ({ openProjectModal, projects }) => {
       {projects &&
         projects.map((project) => {
           return (
-            <button onClick={() => openProjectModal(project)} key={project.id}>
+            <button className={'project-button'} onClick={() => openProjectModal(project)} key={project.id}>
               <ProjectSummary project={project} />
             </button>
           );

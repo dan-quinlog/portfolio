@@ -13,25 +13,42 @@ import { closeProjectModal } from "../store/actions/modalActions";
 
 class Dashboard extends Component {
   render() {
-    const { projects, notifications, modals } = this.props;
+    const { projects, notifications, modals, dash } = this.props;
+    // const toyboxProject = projects && projects.filter(project => project.type === "blogs")
+    // console.log(this.props.dash.viewFilter);
+
     return (
-      <div className="dashboard">
+      <div className="dashboard-wrapper">
         <ProjectModal
           modalIsOpen={modals.projectModal}
           closeProjectModal={this.props.closeProjectModal}
           modalProject={modals.project}
         />
-        <div className="dashboard__top">
-          <div className="dashboard__top__left">
-            <ProfileSS />
+        {this.props.dash.viewFilter === "profile" ? (
+          <div className="dashboard">
+            <div className="dashboard__top">
+              <div className="dashboard__top__left">
+                <ProfileSS />
+              </div>
+              <div className="dashboard__top__right">
+                <Notifications notifications={notifications} />
+              </div>
+            </div>
+            <div className="dashboard__bottom">
+              <ProjectList projects={projects} />
+            </div>
           </div>
-          <div className="dashboard__top__right">
-            <Notifications notifications={notifications} />
+        ) : (
+          <div className="dashboard">
+            <div className="dashboard__bottom">
+              <ProjectList
+                projects={projects.filter(
+                  (project) => project.type === this.props.dash.viewFilter
+                )}
+              />
+            </div>
           </div>
-        </div>
-        <div className="dashboard__bottom">
-          <ProjectList projects={projects} />
-        </div>
+        )}
       </div>
     );
   }
@@ -42,6 +59,7 @@ const mapStateToProps = (state) => {
     projects: state.firestore.ordered.projects,
     notifications: state.firestore.ordered.notifications,
     modals: state.modals,
+    dash: state.dash,
   };
 };
 

@@ -9,6 +9,12 @@
   }
 }
 
+.project-button {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
 .project-card {
   border: 3px solid $nav-border;
   padding: 20px;
@@ -33,5 +39,4 @@
 }
 
 .project-modal {
-  
 }

@@ -2,20 +2,23 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 
+import { setViewFilter } from "../store/actions/dashActions";
+
 import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
 
 const Navbar = (props) => {
   const { auth } = props;
-  const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
+  const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks setViewFilter={props.setViewFilter} />;
   const history = useHistory();
   const signInHandler = (e) => {
     e.persist();
     e.preventDefault();
-    if(e.ctrlKey) {
-      history.push('/signin/')
+    if (e.ctrlKey) {
+      history.push("/signin/");
     } else {
-      history.push('/');
+      props.setViewFilter('profile');
+      history.push("/");
     }
   };
   return (
@@ -40,4 +43,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Navbar);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setViewFilter: (viewFilter) => dispatch(setViewFilter(viewFilter)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

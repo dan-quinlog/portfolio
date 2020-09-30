@@ -8,7 +8,6 @@ ReactModal.setAppElement("#root");
 const NewProjectModal = (props) => {
   const { modalIsOpen, closeProjectModal } = props;
   const project = props.modalProject ? props.modalProject : null;
-  console.log(project);
   const modalForm =
     project === null ? <CreateProject /> : <ProjectDetails project={project} />;
   const modalStyles = {

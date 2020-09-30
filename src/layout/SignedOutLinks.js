@@ -1,18 +1,33 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const SignedOutLinks = () => {
+const SignedOutLinks = (props) => {
+  const filterHandler = (e) => {
+    props.setViewFilter(e);
+  };
   return (
     <ul className="navbar__links signed_out_links">
-      <NavLink to="/" className="navbar__link">
+      <Link
+        to="/"
+        onClick={() => filterHandler("project")}
+        className="navbar__link"
+      >
         <li>Projects</li>
-      </NavLink>
-      <NavLink to="/" className="navbar__link">
-        <li>Blog</li>
-      </NavLink>
-      <NavLink to="/" className="navbar__link">
+      </Link>
+      <Link
+        to="/"
+        onClick={() => filterHandler("blog")}
+        className="navbar__link"
+      >
+        <li>Blogs</li>
+      </Link>
+      <Link
+        to="/"
+        onClick={() => filterHandler("profile")}
+        className="navbar__link"
+      >
         <li>Profile</li>
-      </NavLink>
+      </Link>
     </ul>
   );
 };
