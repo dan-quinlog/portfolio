@@ -9,16 +9,42 @@
     rgba(212, 231, 241, 1) 95%,
     rgba(144, 197, 224, 1) 100%
   );
-
   &__logo {
     width: 150px !important;
-    margin-left: 40px;
+    margin: 10px 40px;
+    border: 3px solid $nav-border;
+    border-radius: 5px;
+    width: 100px;
+    align-self: center;
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.3em;
+    color: $nav-text;
+    font-family: $nav-font;
   }
-
-  &__links {
+  .hamburger {
+    height: 50px;
+    width: 50px;
+    border: 3px solid $nav-border;
+    border-radius: 3px;
+    margin: 5px 35px;
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    color: cornflowerblue;
   }
+  .signed_out_links {
+    display: none;
+  }
+  .signed_in_links {
+    display: none;
+  }
+}
+.navlinks {
+  display: flex;
+  flex-direction: column;
 
   li {
     display: block;
@@ -27,9 +53,8 @@
     border: 3px solid $nav-border;
     border-radius: 5px;
     width: 100px;
-    align-self: center;
     padding: 10px;
-    margin-right: 40px;
+    margin: 5px;
     text-align: center;
     font-weight: 600;
     font-size: 1.3em;
@@ -37,11 +62,63 @@
     font-family: $nav-font;
   }
 }
-
-.ReactModal__Content {
-  height: 80%;
+.navdropdown {
+  position: absolute;
+  background-color: $nav-dropdown;
+  width: 100%;
 }
 
-.signed_in_links {
-  // display: none;
+@media only screen and (min-width: $tablet-view) {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: rgb(250, 250, 250);
+    background: linear-gradient(
+      180deg,
+      rgba(250, 250, 250, 1) 59%,
+      rgba(212, 231, 241, 1) 95%,
+      rgba(144, 197, 224, 1) 100%
+    );
+
+    &__logo {
+      width: 150px !important;
+      margin-left: 40px;
+    }
+    .hamburger {
+      display: none;
+    }
+    .signed_out_links {
+      display: flex;
+    }
+    .signed_in_links {
+      display: flex;
+    }
+  }
+  .navlinks {
+    display: flex;
+    flex-direction: row;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+
+    li {
+      display: block;
+    }
+    &__link {
+      border: 3px solid $nav-border;
+      border-radius: 5px;
+      width: 100px;
+      align-self: center;
+      padding: 10px;
+      margin-right: 40px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.3em;
+      color: $nav-text;
+      font-family: $nav-font;
+    }
+  }
+  .navdropdown {
+    display: none;
+  }
 }

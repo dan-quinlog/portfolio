@@ -9,13 +9,13 @@ const ProjectDetails = ({ project }) => {
       height: "200px",
       backgroundImage: "url(" + project.image + ")",
       backgroundSize: "cover",
+      border: "solid 2px black",
+      borderRadius: "10px",
     };
     return (
       <div className="project-modal">
         {project.image ? (
-          <div className="project-modal__image" style={imageStyle}>
-            image text
-          </div>
+          <div className="project-modal__image" style={imageStyle}></div>
         ) : null}
         <span className="project-modal__title">
           {project.title} {project.id}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { signIn } from "../store/actions/authActions";
+import { Redirect } from "react-router-dom";
 
 class SignIn extends Component {
   state = {
@@ -18,6 +19,7 @@ class SignIn extends Component {
   };
   render() {
     const { authError } = this.props;
+    if (authError && authError === "Login Success") return <Redirect to="/" />;
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="form">

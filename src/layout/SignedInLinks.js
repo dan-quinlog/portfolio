@@ -6,14 +6,14 @@ import { openNewProjectModal } from "../store/actions/modalActions";
 
 const SignedInLinks = (props) => {
   return (
-    <ul className="navbar__links signed_in_links">
+    <ul className="navlinks signed_in_links">
       <button
         onClick={props.openNewProjectModal}
-        className="navbar__link"
+        className="navlinks__link"
       >
         <li>Create</li>
       </button>
-      <button onClick={props.signOut} className="navbar__link">
+      <button onClick={props.signOut} className="navlinks__link">
         <li>Logout</li>
       </button>
     </ul>

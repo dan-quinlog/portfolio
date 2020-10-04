@@ -14,6 +14,9 @@
   border: none;
   cursor: pointer;
 }
+.project-button:focus {
+  outline: none;
+}
 
 .project-card {
   border: 3px solid $nav-border;
@@ -39,4 +42,22 @@
 }
 
 .project-modal {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    align-self: center;
+    font-size: 1.5em;
+    font-weight: 600;
+    padding: 20px;
+  }
+
+  &__content {
+    padding: 0 15px 0 15px;
+  }
+
+  &__details {
+    font-size: 0.6em;
+    align-self: flex-end;
+  }
 }
