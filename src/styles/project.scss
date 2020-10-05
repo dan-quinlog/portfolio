@@ -1,11 +1,16 @@
 .project-list {
+  justify-content: center;
   display: flex;
   flex-direction: row;
   flex-flow: wrap;
-  justify-content: space-between;
-
   a {
     color: $nav-text;
+  }
+}
+
+@media only screen and (min-width: $tablet-view) {
+  .project-list {
+    justify-content: space-between;
   }
 }
 

@@ -1,3 +1,9 @@
+.nav-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
@@ -9,6 +15,7 @@
     rgba(212, 231, 241, 1) 95%,
     rgba(144, 197, 224, 1) 100%
   );
+
   &__logo {
     width: 150px !important;
     margin: 10px 40px;
@@ -70,21 +77,6 @@
 
 @media only screen and (min-width: $tablet-view) {
   .navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background: rgb(250, 250, 250);
-    background: linear-gradient(
-      180deg,
-      rgba(250, 250, 250, 1) 59%,
-      rgba(212, 231, 241, 1) 95%,
-      rgba(144, 197, 224, 1) 100%
-    );
-
-    &__logo {
-      width: 150px !important;
-      margin-left: 40px;
-    }
     .hamburger {
       display: none;
     }
@@ -96,26 +88,13 @@
     }
   }
   .navlinks {
-    display: flex;
     flex-direction: row;
     margin-block-start: 0px;
     margin-block-end: 0px;
 
-    li {
-      display: block;
-    }
     &__link {
-      border: 3px solid $nav-border;
-      border-radius: 5px;
-      width: 100px;
       align-self: center;
-      padding: 10px;
       margin-right: 40px;
-      text-align: center;
-      font-weight: 600;
-      font-size: 1.3em;
-      color: $nav-text;
-      font-family: $nav-font;
     }
   }
   .navdropdown {
