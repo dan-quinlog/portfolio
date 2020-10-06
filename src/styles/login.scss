@@ -1,0 +1,46 @@
+.login {
+  margin: 20px;
+  width: 300px;
+  border: 3px solid $nav-border;
+  border-radius: 25px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    text-align: center;
+    font-size: 3em;
+    color: $nav-text;
+    font-weight: 600;
+  }
+  &__input {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 5px;
+
+    &__title {
+      color: $nav-text;
+      font-size: .9em;
+    }
+    &__field {
+      border: 2px solid $nav-border;
+      border-radius: 5px;
+    }
+    &__field:focus {
+      outline: none;
+    }
+  }
+  &__confirm {
+    &__button {
+      padding: 0px 25px;
+      font-size: 1.1em;
+    }
+    &__authoerror {
+      color: red;
+      font-size: .8em;
+      text-align: center;
+    }
+  }
+}

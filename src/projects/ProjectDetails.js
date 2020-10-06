@@ -5,7 +5,7 @@ import ReactHtmlParser from "react-html-parser";
 const ProjectDetails = ({ project }) => {
   if (project) {
     const imageStyle = {
-      width: "100%",
+      width: "500px",
       height: "200px",
       backgroundImage: "url(" + project.image + ")",
       backgroundSize: "cover",
@@ -18,7 +18,7 @@ const ProjectDetails = ({ project }) => {
           <div className="project-modal__image" style={imageStyle}></div>
         ) : null}
         <span className="project-modal__title">
-          {project.title} {project.id}
+          {project.title}
         </span>
         <p className="project-modal__content">
           {ReactHtmlParser(project.content)}

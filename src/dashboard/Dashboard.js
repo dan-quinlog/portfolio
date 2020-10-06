@@ -43,7 +43,7 @@ class Dashboard extends Component {
             <div className="dashboard__bottom">
               <ProjectList
                 projects={projects.filter(
-                  (project) => project.type === this.props.dash.viewFilter
+                  (project) => project.type === dash.viewFilter
                 )}
               />
             </div>
