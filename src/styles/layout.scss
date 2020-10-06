@@ -31,16 +31,17 @@
     font-family: $nav-font;
   }
   .hamburger {
-    height: 50px;
-    width: 50px;
+    height: 45px;
+    width: 45px;
     border: 3px solid $nav-border;
     border-radius: 3px;
-    margin: 5px 35px;
+    margin: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2em;
+    font-size: 1.3em;
     color: cornflowerblue;
+    cursor: pointer;
   }
   .signed_out_links {
     display: none;

@@ -1,3 +1,11 @@
 .ReactModal__Content {
   height: 80%;
 }
+.ReactModal__Overlay {
+  z-index: 10;
+}
+@media only screen and (min-width: $tablet-view) {
+  .ReactModal__Content {
+    width: 800px !important;
+  }
+}

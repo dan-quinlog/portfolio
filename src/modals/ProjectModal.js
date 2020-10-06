@@ -17,7 +17,7 @@ const NewProjectModal = (props) => {
       right: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      width: "800px",
+      width: "100%",
     },
     overlay: {
       backgroundColor: "rgba(1, 1, 1, .75)",
