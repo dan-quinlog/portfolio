@@ -1,7 +1,7 @@
-import { storage } from "../../config/fbConfig";
+//import { storage } from "../../config/fbConfig";
 
 export const createProject = (project) => {
-  return (dispatch, getState, { getFirestore }) => {
+  return (dispatch, getState, { getFirestore, storage }) => {
     //async call to database
     const { type, title, content, image } = project;
 

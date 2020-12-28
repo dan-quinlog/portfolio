@@ -11,15 +11,14 @@ const ProjectDetails = ({ project }) => {
       backgroundSize: "cover",
       border: "solid 2px black",
       borderRadius: "10px",
+      alignSelf: "center",
     };
     return (
       <div className="project-modal">
         {project.image ? (
           <div className="project-modal__image" style={imageStyle}></div>
         ) : null}
-        <span className="project-modal__title">
-          {project.title}
-        </span>
+        <span className="project-modal__title">{project.title}</span>
         <p className="project-modal__content">
           {ReactHtmlParser(project.content)}
         </p>
